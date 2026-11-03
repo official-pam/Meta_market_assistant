@@ -13,3 +13,4 @@ Thumbs.db
 .npm-cache/
 .local-demo/
 .local-run/
+.railway/

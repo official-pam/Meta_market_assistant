@@ -59,7 +59,9 @@ GitHub/Muse handoff, once the destination is confirmed: push reviewed source wit
 
 ## Railway preparation — not deployed
 
-Set the service root directory to `web` and use `railway.json`. Its Docker build runs the Next.js production build, starts the standalone server as a non-root user, runs migrations before deployment and uses `/api/health` for readiness. `PORT` is supplied by Railway. Current configuration follows [Railway config documentation](https://docs.railway.com/config-as-code/reference) and [healthcheck documentation](https://docs.railway.com/deployments/healthchecks), checked 3 November 2026. A Railway deployment healthcheck is not continuous monitoring.
+Set the application service root directory to `/web`. Railway's [monorepo documentation](https://docs.railway.com/deployments/monorepo) says the config-file path is separate: for a service supporting the checked-in legacy config, explicitly select `/web/railway.json`. Current [config documentation](https://docs.railway.com/config-as-code/reference) deprecates that format for new services; use the dashboard settings below if the new service does not support it. Do not assume the nested config is discovered automatically.
+
+Dashboard settings: Dockerfile builder using `Dockerfile` within the `/web` source root; pre-deploy command `node scripts/migrate.mjs`; start with the image's `node server.js` command; healthcheck `/api/health`, timeout 120 seconds; restart on failure with up to three retries. The Docker image runs as a non-root user and listens on Railway's `PORT`. These are prepared settings, not proof of a successful container build or deployment. Railway's [deployment healthcheck](https://docs.railway.com/deployments/healthchecks) is not continuous monitoring.
 
 Before provisioning: confirm trial balance, resource limits, PostgreSQL connectivity and any required extensions. Current SQL does not require PostGIS; discovery uses spherical distance. No hosted model calls, scheduler or webhook delivery has been verified. The Docker image itself still needs a build/run test where Docker is available.
 
