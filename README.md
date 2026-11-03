@@ -24,4 +24,3 @@ npm run build
 Follow `web/README.md` to configure a private local environment before starting the demo. Environment files, API keys and local demo databases are excluded from this repository.
 
 The supplied Meta Agents 101 workshop demonstrates Muse Spark 1.3; this app defaults to that model for extraction. Using Muse Code to edit a repository and calling a Meta model from the application are separate steps. Neither is proof that all hackathon rules or production launch requirements have passed.
-
