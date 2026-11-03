@@ -6,7 +6,7 @@ AI Market Assistant helps traders record stock and helps buyers discover product
 
 In the intended experience, traders register their shop's location and supported products, and buyers search around a chosen location. Local results depend on participating shops keeping their stock records current; opening the site in a new area does not automatically provide inventory for that area. An area without participating shops should show an honest empty result.
 
-**Demo data is simulated.** Local stock logging, confirmation, buyer discovery, feedback and inventory alerts have been tested. An authenticated Muse Spark 1.3 text smoke test passed on 3 November 2026. Live stock interpretation and English/Pidgin voice quality still need application-level checks. Railway configuration is prepared; the application has not been deployed or submitted.
+**Demo data is simulated.** Local stock logging, confirmation, buyer discovery, feedback and inventory alerts have been tested. An authenticated Muse Spark 1.3 text smoke test passed on 3 November 2026. Four live synthetic text-interpretation checks also passed through the application adapter. Full UI integration and English/Pidgin voice quality remain pending. Railway configuration is prepared; the application has not been deployed or submitted.
 
 - [Application setup, verification and architecture](web/README.md)
 - [Project instructions and six-task plan](AGENTS.md)
@@ -24,3 +24,4 @@ npm run build
 Follow `web/README.md` to configure a private local environment before starting the demo. Environment files, API keys and local demo databases are excluded from this repository.
 
 The supplied Meta Agents 101 workshop demonstrates Muse Spark 1.3; this app defaults to that model for extraction. Using Muse Code to edit a repository and calling a Meta model from the application are separate steps. Neither is proof that all hackathon rules or production launch requirements have passed.
+
