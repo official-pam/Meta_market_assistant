@@ -69,3 +69,12 @@ test("voice upload uses the documented file fields and returns reviewable text",
   });
   assert.equal(await client.transcribe(pcmToWav(new Float32Array(24000))),"I sell three Indomie packs");
 });
+
+test("Responses extraction preserves schema, user input and validation",async()=>{
+  const client=createMetaClient({key:"test-only",textProtocol:"responses"},async(url,options)=>{
+    const body=JSON.parse(options.body);assert.equal(url,"https://api.meta.ai/v1/responses");assert.equal(body.input,"Sold 3 packs");assert.equal(body.text.format.type,"json_schema");assert.equal(body.text.format.strict,true);assert.equal(body.tools,undefined);
+    return Response.json({status:"completed",output:[{type:"message",content:[{type:"output_text",text:JSON.stringify(extracted)}]}]});
+  });assert.deepEqual(await client.extract("Sold 3 packs"),extracted);
+  const incomplete=createMetaClient({key:"test-only",textProtocol:"responses"},async()=>Response.json({status:"incomplete",output_text:JSON.stringify(extracted)}));
+  await assert.rejects(incomplete.extract("Sold 3 packs"),/INVALID_MODEL_RESPONSE/);
+});

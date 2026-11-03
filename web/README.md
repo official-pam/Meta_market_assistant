@@ -4,7 +4,7 @@ AI Market Assistant is intended to help traders record and confirm stock updates
 
 **Current demo scope:** fictional provision shops in Kubwa and a packaged-goods catalog. Kubwa is a sample location, not a permanent geographic restriction. The intended wider experience lets traders register shop locations and supported products and lets buyers search around a chosen location. Results require participating shops with current inventory; new areas may have no results. Location/category expansion and real-data onboarding still require implementation and validation beyond the current synthetic demo.
 
-**Current state:** local manual entry, review/confirmation, stock ledger, buyer discovery, feedback, polling and inventory insights work in the tested local environment. An authenticated Muse Spark 1.3 text smoke test passed on 3 November 2026. Four live synthetic text-extraction cases passed through the application adapter: English sale, Pidgin restock, missing quantity and multiple-item clarification. Full UI integration, representative voice accuracy, hosted PostgreSQL concurrency, Railway deployment and competition acceptance are pending. Do not describe this as a production service or completed AI integration.
+**Current state:** the Railway synthetic demo is deployed. Hosted readiness, signup, live Muse Spark 1.3 interpretation through Responses, no stock write before confirmation, replay protection, buyer sold-out refresh, private-stock authorization, concurrent last-item oversell prevention and insights passed. Four local live extraction cases and 39 offline tests also passed. Visual screen verification, representative voice accuracy, broader reliability/backup checks and competition acceptance remain pending. This is not a production service or completed voice integration.
 
 ## Run locally
 
@@ -57,7 +57,11 @@ After the API-access gate is satisfied, set the key privately in `.env.local`, c
 
 GitHub/Muse handoff, once the destination is confirmed: push reviewed source without `.env*`, local data, screenshots/logs or keys; clone the confirmed repository in the user's Muse environment; open its root instructions; run the commands above from `web/`. Muse Code is a coding tool; cloning into it does not itself establish that this application uses the required Meta model. Preserve the code changes and provider execution evidence separately. Do not send environment files or private data to an agent workspace without the user's approval.
 
-## Railway preparation — not deployed
+## Railway demo
+
+Public app: https://ai-market-assistant-production.up.railway.app — buyer search: https://ai-market-assistant-production.up.railway.app/buyer. This is a synthetic hackathon demo, not a real-data pilot. Hosted readiness, live Spark interpretation, stock confirmation, replay protection, buyer updates, private-stock authorization and concurrent oversell prevention passed against PostgreSQL. Visual/voice and remaining release checks are tracked in task 06.
+
+`META_TEXT_PROTOCOL=responses` selects Meta's Responses API with the same strict schema and Spark model; `chat` preserves the Chat Completions path. Local live Responses extraction and incomplete-output rejection tests passed. Hosting protocol selection is tracked separately from model identity and permission to call it.
 
 Set the application service root directory to `/web`. Railway's [monorepo documentation](https://docs.railway.com/deployments/monorepo) says the config-file path is separate: for a service supporting the checked-in legacy config, explicitly select `/web/railway.json`. Current [config documentation](https://docs.railway.com/config-as-code/reference) deprecates that format for new services; use the dashboard settings below if the new service does not support it. Do not assume the nested config is discovered automatically.
 
@@ -68,6 +72,8 @@ Before provisioning: confirm trial balance, resource limits, PostgreSQL connecti
 For a separate **synthetic-only** hosted database set `DATABASE_URL`, `DEMO_MODE=true`, `LOCAL_DEMO_DATABASE=false`, a new `SESSION_SECRET`, `ENABLE_META_CALLS=false`, and `APP_ORIGIN` to the exact HTTPS application origin. Configure secrets in Railway, never build arguments. Run the seed once against an empty migrated demo database using `ALLOW_DEMO_SEED=true`, then remove that seed permission. Never seed over live records or automate seeding on every deployment. Recheck freshness dates before a demonstration.
 
 `GET /api/health` returns only `ready` or `unavailable`, checks required configuration, database connectivity and the latest required table, and returns 503 on failure. It does not test Meta or disclose connection details. Observe server errors and response failures without recording credentials, audio, request bodies or precise buyer coordinates. Assign an operator and configure continuous monitoring before public use.
+
+The production startup command runs `scripts/release.mjs` before starting the standalone server. This applies checksummed migrations even when a hosting platform omits the pre-deploy hook. Seeding requires both `DEMO_MODE=true` and `ALLOW_DEMO_SEED=true` and an empty shops table. Existing data is retained. Remove the seed permission after initial setup. For new deployments, use `node scripts/release.mjs` as the pre-deploy command as well.
 
 ## Recovery and demo reset
 

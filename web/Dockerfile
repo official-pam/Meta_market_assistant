@@ -16,4 +16,4 @@ COPY --chown=node:node --from=build /app/scripts ./scripts
 COPY --chown=node:node --from=build /app/db ./db
 USER node
 EXPOSE 3000
-CMD ["node", "server.js"]
+CMD ["node", "scripts/start-production.mjs"]

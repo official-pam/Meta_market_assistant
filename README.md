@@ -6,7 +6,7 @@ AI Market Assistant helps traders record stock and helps buyers discover product
 
 In the intended experience, traders register their shop's location and supported products, and buyers search around a chosen location. Local results depend on participating shops keeping their stock records current; opening the site in a new area does not automatically provide inventory for that area. An area without participating shops should show an honest empty result.
 
-**Demo data is simulated.** Local stock logging, confirmation, buyer discovery, feedback and inventory alerts have been tested. An authenticated Muse Spark 1.3 text smoke test passed on 3 November 2026. Four live synthetic text-interpretation checks also passed through the application adapter. Full UI integration and English/Pidgin voice quality remain pending. Railway configuration is prepared; the application has not been deployed or submitted.
+**Demo data is simulated.** The [Railway demo](https://ai-market-assistant-production.up.railway.app) is deployed with PostgreSQL. Hosted signup, live Muse Spark 1.3 text interpretation, review before stock changes, confirmation/replay protection, buyer updates, stock authorization and concurrent oversell checks passed. The hosted text adapter uses Meta's Responses API. Visual browser checks, representative voice quality, backup restore and actual submission remain pending.
 
 - [Application setup, verification and architecture](web/README.md)
 - [Project instructions and six-task plan](AGENTS.md)

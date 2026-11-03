@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node scripts/start-production.mjs",
     "lint": "eslint",
     "check:meta": "node --env-file-if-exists=.env.local scripts/check-meta.mjs",
     "db:migrate": "node --env-file-if-exists=.env.local scripts/migrate.mjs",
