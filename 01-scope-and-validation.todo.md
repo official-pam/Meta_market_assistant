@@ -106,6 +106,8 @@ Remaining: team/track/participant rules, credit balance, authenticated model smo
 
 ## Local setup and Meta check
 
+Update, 3 November 2026: user saved `MODEL_API_KEY` privately and explicitly confirmed available hackathon credits and authorization for the small live test. Key presence and Git exclusion were checked without displaying its value. `npm run check:meta` passed with `muse-spark-1.3` against Meta's `/v1/responses` endpoint after retrying with network access. The first restricted-network attempt could not connect. This verifies authenticated text access only; structured stock extraction, voice accuracy, remaining credit balance and other model access are not established. `ENABLE_META_CALLS` remains false pending application-level checks. No key or full provider response was recorded. Earlier missing-access notes below describe prior checks.
+
 1. Open `AI Market Assistant.code-workspace` in VS Code. Application commands run from `web/`.
 2. Install dependencies with `npm install` if not already installed; start with `npm run dev` and visit `http://localhost:3000`.
 3. Copy `web/.env.example` to `web/.env.local`. Fill in `MODEL_API_KEY` locally and `DATABASE_URL` when the database exists. Neither value belongs in chat or version control. Keep the key server-side.

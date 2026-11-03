@@ -141,3 +141,5 @@ Fresh-checkout evidence: the public initial commit was cloned without `.env.loca
 Dependency review: the full installation audit reported 16 moderate advisories. A separate `npm audit --omit=dev --json` reported zero production dependency advisories on 3 November 2026. Development dependency advisories remain to be triaged before a production maintenance baseline is claimed; no automatic breaking upgrades were applied. The audit is a point-in-time package check, not a security certification.
 
 Task 06 remains open. Local preparation and source publication do not complete live-model validation, competition rules, hosted deployment, video recording, submission or real-data pilot gates.
+
+3 November 2026 — Live-provider gate update: user confirmed key setup and available hackathon credits, and authorized the small text test. `npm run check:meta` passed against Muse Spark 1.3. This supersedes earlier missing-key/text-access blockers only. Application-level extraction, voice, other models and deployment are still pending; `ENABLE_META_CALLS=false` is preserved. Secret remains in ignored `web/.env.local` and is not included in this record.

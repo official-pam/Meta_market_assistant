@@ -4,7 +4,7 @@ AI Market Assistant is intended to help traders record and confirm stock updates
 
 **Current demo scope:** fictional provision shops in Kubwa and a packaged-goods catalog. Kubwa is a sample location, not a permanent geographic restriction. The intended wider experience lets traders register shop locations and supported products and lets buyers search around a chosen location. Results require participating shops with current inventory; new areas may have no results. Location/category expansion and real-data onboarding still require implementation and validation beyond the current synthetic demo.
 
-**Current state:** local manual entry, review/confirmation, stock ledger, buyer discovery, feedback, polling and inventory insights work in the tested local environment. Live Meta authentication, English/Pidgin voice accuracy, hosted PostgreSQL concurrency, Railway deployment and competition acceptance are pending. Do not describe this as a production service or completed AI integration.
+**Current state:** local manual entry, review/confirmation, stock ledger, buyer discovery, feedback, polling and inventory insights work in the tested local environment. An authenticated Muse Spark 1.3 text smoke test passed on 3 November 2026. Live stock interpretation, English/Pidgin voice accuracy, hosted PostgreSQL concurrency, Railway deployment and competition acceptance are pending. Do not describe this as a production service or completed AI integration.
 
 ## Run locally
 
