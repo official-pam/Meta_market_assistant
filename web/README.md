@@ -1,6 +1,8 @@
 # AI Market Assistant
 
-A synthetic hackathon demo for provision shops in Kubwa: traders record and confirm stock updates; buyers find nearby estimated availability without accounts. Built with Next.js for the interface and APIs, PostgreSQL stock events, and optional Meta Model API adapters.
+AI Market Assistant is intended to help traders record and confirm stock updates and help buyers find nearby estimated availability wherever they use the service, starting with Nigerian markets. Buyers browse without accounts. It is built with Next.js for the interface and APIs, PostgreSQL stock events, and Meta Model API adapters.
+
+**Current demo scope:** fictional provision shops in Kubwa and a packaged-goods catalog. Kubwa is a sample location, not a permanent geographic restriction. The intended wider experience lets traders register shop locations and supported products and lets buyers search around a chosen location. Results require participating shops with current inventory; new areas may have no results. Location/category expansion and real-data onboarding still require implementation and validation beyond the current synthetic demo.
 
 **Current state:** local manual entry, review/confirmation, stock ledger, buyer discovery, feedback, polling and inventory insights work in the tested local environment. Live Meta authentication, English/Pidgin voice accuracy, hosted PostgreSQL concurrency, Railway deployment and competition acceptance are pending. Do not describe this as a production service or completed AI integration.
 
